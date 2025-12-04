@@ -16,3 +16,9 @@ A Python Django web application for managing help desk tickets.
   - A blocked SQL injection attempt  
   - A prevented XSS attack where script content does not execute  
   - Correct handling of access restrictions when a regular user attempts to reach an admin-only page  
+
+
+## Dev setup
+- enable virtual environment before development 
+
+source django_env/bin/activate
