@@ -22,3 +22,7 @@ A Python Django web application for managing help desk tickets.
 - enable virtual environment before development 
 
 source django_env/bin/activate
+
+
+## 
+Uses Django 3.1
