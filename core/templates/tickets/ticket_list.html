@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}
+    Bicket Dashboard
+{% endblock title %}
+{% block content %}
+    <h1 class="mb-4">Ticket Dashboard</h1>
+    {% if ticket_list %}
+        <div class="row">
+            {% for ticket in ticket_list %}
+                <div class="col-sm-6 py-3">
+                    <div class="card h-100 {{ ticket.status_class }}">
+                        <div class="card-header">
+                            <strong class="mt-1">{{ ticket.ticket_title }}</strong>
+                            <span class="badge bg-primary text-white p-1">{{ ticket.completion_status }}</span>
+                            {% if not ticket.is_closed %}
+                                <a href="{% url 'ticket_edit' ticket.pk %}" class="btn btn-link ms-2">Edit</a>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                <strong>Assigned to:</strong> {{ ticket.user_assigned_to }}
+                            </p>
+                            <p>
+                                <strong>Raised on:</strong> {{ ticket.date_raised }}
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            {% if ticket.completion_status != 'Fixed' and ticket.completion_status != 'Closed without fix' %}
+                                <form action="{% url 'ticket_complete' ticket.pk %}"
+                                      method="post"
+                                      style="display:inline">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-success">Complete ticket</button>
+                                </form>
+                                <form action="{% url 'ticket_close' ticket.pk %}"
+                                      method="post"
+                                      style="display:inline">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-secondary ms-2">Close ticket</button>
+                                </form>
+                            {% endif %}
+                            <a href="{% url 'ticket_delete' ticket.pk %}"
+                               class="btn btn-sm {{ ticket.is_complete_status_class }}">Delete ticket</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No tickets to display.</p>
+    {% endif %}
+{% endblock content %}

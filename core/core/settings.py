@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'accounts',
+    'tickets',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,5 @@ LOGOUT_REDIRECT_URL = 'home'
 # Use Bootstrap with crispy forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+TIME_ZONE = 'Europe/London'
