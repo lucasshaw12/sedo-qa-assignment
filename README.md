@@ -25,4 +25,8 @@ source django_env/bin/activate
 
 
 ## 
-Uses Django 3.1
+Uses Django 3.1, Python 3.10.4
+
+
+## GHA workflow
+includes code coverage
