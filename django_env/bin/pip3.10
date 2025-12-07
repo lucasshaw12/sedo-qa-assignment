@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/Lucas/Library/CloudStorage/GoogleDrive-lucas.shaw12@gmail.com/My Drive/Apprenticeship/Software Engineering and DevOps/sedo-qa-assignment/django_env/bin/python3" "$0" "$@"
+'''exec' "/Users/Lucas/Library/CloudStorage/GoogleDrive-lucas.shaw12@gmail.com/My Drive/Apprenticeship/Software Engineering and DevOps/sedo-qa-assignment/django_env/bin/python" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
