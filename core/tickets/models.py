@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Ticket(models.Model):
 	title = models.CharField(max_length=255)
-	body = models.TextField()
+	body = models.TextField(max_length=255)
 	date = models.DateTimeField(auto_now_add=True)
 	author = models.ForeignKey(
 		get_user_model(),
