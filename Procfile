@@ -1,1 +1,1 @@
-web gunicorn core.wsgi:application --log-file -
+web gunicorn sedo-qa-assignment.wsgi:application --log-file -
