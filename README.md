@@ -40,3 +40,7 @@ includes linting with ruff, testing & code coverage with pytest cov. Coverage mu
 ## Branch rules
 THe workflow build must pass before the branch can be merged into main. These are configured within the branch protection rules in GitHub.
 
+## Hosting
+Hosted on Heroku with gunicorn and django-heroku libraries.
+
+Verify the Git and Heroku remote address with `git remote -v`
