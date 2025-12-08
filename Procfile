@@ -1,2 +1,2 @@
-release: python manage.py migrate --chdir core
+release: cd core && python manage.py migrate
 web: gunicorn core.wsgi:application --chdir core --log-file -
