@@ -3,13 +3,13 @@
 A Python Django web application for managing help desk tickets.
 
 ## Functionality
-- View, create, update, and delete tickets  
+- View, create, update, and delete tickets (CRUD) 
 - Central database with sample records  
 - Data validation with clear error messages
 
 ## User roles
 - Regular users can create and view tickets  
-- Administrators have full control over all records (full CRUD)
+- Administrators (Django superusers) have full control over all records (full CRUD) and access to the Django admin database
 
 ## Security requirements
 - Evidence should include:
