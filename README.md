@@ -44,3 +44,5 @@ THe workflow build must pass before the branch can be merged into main. These ar
 Hosted on Heroku with gunicorn and django-heroku libraries.
 
 Verify the Git and Heroku remote address with `git remote -v`
+
+Heroku static files currently disabled with `heroku config:set DISABLE_COLLECTSTATIC=1`
