@@ -40,3 +40,9 @@ includes linting with ruff, testing & code coverage with pytest cov. Coverage mu
 ## Branch rules
 THe workflow build must pass before the branch can be merged into main. These are configured within the branch protection rules in GitHub.
 
+## Hosting
+Hosted on Heroku with gunicorn and django-heroku libraries. Changes need to be pushed to heroku with `git push heroku main`. If pushing from non main branch `git push heroku <branch_name>:main` 
+
+Verify the Git and Heroku remote address with `git remote -v`
+
+Heroku static files currently disabled with `heroku config:set DISABLE_COLLECTSTATIC=1`

@@ -15,7 +15,7 @@ class TicketCreateView(LoginRequiredMixin, CreateView):
         'author',
     ]
     template_name = "tickets/ticket_form.html"
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("ticket_list")
     login_url = reverse_lazy("login")
 
 
@@ -23,12 +23,12 @@ class TicketUpdateView(LoginRequiredMixin, UpdateView):
     model = Ticket
     fields = TicketCreateView.fields
     template_name = "tickets/ticket_form.html"
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("ticket_list")
     login_url = reverse_lazy("login")
 
 
 class TicketDeleteView(LoginRequiredMixin, DeleteView):
     model = Ticket
     template_name = "tickets/ticket_delete.html"
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("ticket_list")
     login_url = reverse_lazy("login")
