@@ -24,5 +24,13 @@ A Python Django web application for managing help desk tickets.
 source django_env/bin/activate
 
 
-## 
-Uses Django 3.1
+## Versions
+Uses Django 3.1, Python 3.10.4
+
+
+## GHA workflow
+includes linting with ruff, testing & code coverage with pytest cov. Coverage must pass before the branch can be merged into the main codebase.
+
+## Branch rules
+THe workflow build must pass before the branch can be merged into main. These are configured within the branch protection rules in GitHub.
+
