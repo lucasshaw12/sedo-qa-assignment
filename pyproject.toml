@@ -5,4 +5,4 @@ line_coverage_min = 80
 DJANGO_SETTINGS_MODULE = "core.settings"
 pythonpath = ["core"]
 testpaths = ["core"]
-python_files = ["tests.py", "test_*.py", "*_test.py", "*_tests.py"]
+python_files = ["test_*.py", "*_test.py", "*_tests.py"]
