@@ -35,7 +35,16 @@ Uses Django 3.1, Python 3.10.4
 
 
 ## GHA workflow
-includes linting with ruff, testing & code coverage with pytest cov. Coverage must pass before the branch can be merged into the main codebase.
+Includes linting with autopep8, testing & code coverage with pytest and coverage libraries. Coverage must pass before the branch can be merged into the main codebase.
+
+## Testing
+Testing is performed using pytest. The test suite can be run manually but is always run in the branch on GitHub, within a minimum coverage set to ensure sufficient testing is made for the application. The GitHub workflow file shows the test outcome with the coverage table.
+
+The `pyproject.toml` file has the configuration for the coverage threshold.
+
+## Project delivery management
+Using Github projects the application is planned with all component details with the individual task item. The items are tracked by their respective columns, ToDo, Backlog, InProgress, Peer Review, QA, Ready for Release and Done. The specificity of the columns allows a finer tuned tracking process to prevent any uncertainty with the status of the task. Especially when multiple tasks are being worked on in unison, such as adding authentication with the 'Create' or 'Edit' functionality for a ticket.
+
 
 ## Branch rules
 THe workflow build must pass before the branch can be merged into main. These are configured within the branch protection rules in GitHub.
@@ -46,3 +55,25 @@ Hosted on Heroku with gunicorn and django-heroku libraries. Changes need to be p
 Verify the Git and Heroku remote address with `git remote -v`
 
 Heroku static files currently disabled with `heroku config:set DISABLE_COLLECTSTATIC=1`
+
+## Testing OWASP attacks
+Terminal window 1 - Open a terminal and run `heroku logs -t` to show live continuous logging
+
+Displaying logs of Heroku app for images/video. Visible in terminal and web browser console
+`heroku logs -t`
+
+For Cross Site Request Forgery (CSRF) - https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/
+Should see a 403 forbidden in web browser console and heroku logs
+fetch("/tickets/add",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"title=csrf_attack&description=forged_request"}).then(r=>console.log("status:",r.status))
+
+Broken Access Control (AKA unauthorised access to a page or action)
+Ensure no user is logged in
+Try to navigate to the URL - https://sedo-qa-assignment-444a66b40d4d.herokuapp.com/tickets/add
+Show that the user is redirected with a 302 status code and is shown the login page
+
+A10 Mishandling of exceptional conditions: safe error handling
+Django.settings DEBUG=False to prevent showing full stack trace when an exception occurs. This could be caused by vising a resource that does not exist such as `/tickets/99999999/edit`.
+Confirm the resource id does not exist in the database. 
+Attempt to visit that resource in the URL. 
+User sees a 404 page and not the web applications stack trace. 
+Heroku terminal logs will show 404 status code. 
