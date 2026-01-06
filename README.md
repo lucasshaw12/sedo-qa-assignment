@@ -40,6 +40,8 @@ Includes linting with autopep8, testing & code coverage with pytest and coverage
 ## Testing
 Testing is performed using pytest. The test suite can be run manually but is always run in the branch on GitHub, within a minimum coverage set to ensure sufficient testing is made for the application. The GitHub workflow file shows the test outcome with the coverage table.
 
+The `pyproject.toml` file has the configuration for the coverage threshold.
+
 ## Project delivery management
 Using Github projects the application is planned with all component details with the individual task item. The items are tracked by their respective columns, ToDo, Backlog, InProgress, Peer Review, QA, Ready for Release and Done. The specificity of the columns allows a finer tuned tracking process to prevent any uncertainty with the status of the task. Especially when multiple tasks are being worked on in unison, such as adding authentication with the 'Create' or 'Edit' functionality for a ticket.
 
