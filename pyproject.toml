@@ -1,2 +1,8 @@
 [tool.coverage-threshold]
 line_coverage_min = 80
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.settings"
+pythonpath = ["core"]
+testpaths = ["core"]
+python_files = ["tests.py", "test_*.py", "*_test.py", "*_tests.py"]
