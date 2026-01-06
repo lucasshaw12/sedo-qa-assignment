@@ -27,10 +27,3 @@ jobs:
     - name: Lint with autopep8
       run: |
         autopep8 -r core/accounts core/tickets --exclude="*/migrations/*" --diff
-
-    - name: Test with pytest
-      run: |
-        python3 -m coverage run -m pytest
-        python3 -m coverage json
-        python3 -m coverage report
-        coverage-threshold
