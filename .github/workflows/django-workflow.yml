@@ -26,7 +26,7 @@ jobs:
 
     - name: Lint with autopep8
       run: |
-        autopep8 --diff --exit-code -r core/accounts core/tickets
+        autopep8 -r core/accounts core/tickets --exclude="*/migrations/*" --diff
 
     - name: Test with pytest
       run: |

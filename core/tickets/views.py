@@ -3,9 +3,11 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Ticket
 
+
 class TicketListView(ListView):
-	model = Ticket
-	template_name = 'tickets/ticket_list.html'
+    model = Ticket
+    template_name = 'tickets/ticket_list.html'
+
 
 class TicketCreateView(LoginRequiredMixin, CreateView):
     model = Ticket

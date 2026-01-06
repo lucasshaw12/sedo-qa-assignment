@@ -20,4 +20,5 @@ class CustomUserAdmin(UserAdmin):
         "num_tickets_assigned",
     )
 
+
 admin.site.register(CustomUser, CustomUserAdmin)
