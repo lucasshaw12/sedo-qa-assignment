@@ -142,4 +142,3 @@ class TestTicketViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "tickets/ticket_delete.html")
         self.assertContains(response, "Are you sure you want to delete")
-

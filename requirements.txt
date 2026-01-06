@@ -2,7 +2,10 @@ asgiref==3.11.0
 astroid==2.15.8
 autopep8==2.3.2
 coverage==7.12.0
+<<<<<<< HEAD
 coverage_threshold==0.6.2
+=======
+>>>>>>> f24089a34ae4b9d1879aedf42bdaabc97c7387f4
 crispy-bootstrap5==0.6
 dj-database-url==3.0.1
 Django==5.2.9
@@ -24,7 +27,10 @@ pytest-cov==7.0.0
 pytest-django==4.11.1
 pytz==2025.2
 sqlparse==0.5.4
+<<<<<<< HEAD
 toml==0.10.2
+=======
+>>>>>>> f24089a34ae4b9d1879aedf42bdaabc97c7387f4
 tomli==2.3.0
 typing_extensions==4.15.0
 whitenoise==6.11.0
