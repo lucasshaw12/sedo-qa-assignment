@@ -57,6 +57,12 @@ Verify the Git and Heroku remote address with `git remote -v`
 
 Heroku static files currently disabled with `heroku config:set DISABLE_COLLECTSTATIC=1`
 
+## Heroku database access from CLI
+Run `heroku pg:psql`
+List all tables `\dt`
+See all users `SELECT id, email, username, is_staff, is_superuser, is_active, date_joined FROM accounts_customuser ORDER BY id;`
+Delete a user `DELETE FROM accounts_customuser WHERE id = 3;`
+
 ## Testing OWASP attacks
 Terminal window 1 - Open a terminal and run `heroku logs -t` to show live continuous logging
 
