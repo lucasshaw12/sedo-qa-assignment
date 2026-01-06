@@ -45,6 +45,7 @@ The `pyproject.toml` file has the configuration for the coverage threshold.
 ## Project delivery management
 Using Github projects the application is planned with all component details with the individual task item. The items are tracked by their respective columns, ToDo, Backlog, InProgress, Peer Review, QA, Ready for Release and Done. The specificity of the columns allows a finer tuned tracking process to prevent any uncertainty with the status of the task. Especially when multiple tasks are being worked on in unison, such as adding authentication with the 'Create' or 'Edit' functionality for a ticket.
 
+Project is available at: https://github.com/users/lucasshaw12/projects/2
 
 ## Branch rules
 THe workflow build must pass before the branch can be merged into main. These are configured within the branch protection rules in GitHub.
