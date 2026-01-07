@@ -12,6 +12,7 @@ class Ticket(models.Model):
         get_user_model(),
         on_delete=models.CASCADE,
     )
+    is_completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

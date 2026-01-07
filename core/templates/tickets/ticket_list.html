@@ -12,6 +12,12 @@
                         <div class="card-header">
                             <strong class="mt-1">{{ ticket.ticket_title }}</strong>
                             <span class="badge bg-primary text-white p-1">{{ ticket.completion_status }}</span>
+                                {% if ticket.is_completed %}
+                                    <span class="badge badge-success">Completed</span>
+                                {% else %}
+                                    <span class="badge badge-secondary">Open</span>
+                                    <a href="{% url 'ticket_complete' ticket.pk %}" class="btn btn-link btn-sm text-success">Mark as complete</a>
+                                {% endif %}
                             {% if user.is_authenticated %}
                                 {% if user.is_superuser or ticket.author_id == user.id %}
                                     <a href="{% url 'ticket_edit' ticket.pk %}" class="btn btn-link btn-sm">Edit</a>
