@@ -12,8 +12,11 @@
                         <div class="card-header">
                             <strong class="mt-1">{{ ticket.ticket_title }}</strong>
                             <span class="badge bg-primary text-white p-1">{{ ticket.completion_status }}</span>
-                            {% if not ticket.is_closed %}
-                                <a href="{% url 'ticket_edit' ticket.pk %}" class="btn btn-link ms-2">Edit</a>
+                            {% if user.is_authenticated %}
+                                {% if user.is_superuser or ticket.author_id == user.id %}
+                                    <a href="{% url 'ticket_edit' ticket.pk %}" class="btn btn-link btn-sm">Edit</a>
+                                    <a href="{% url 'ticket_delete' ticket.pk %}" class="btn btn-link btn-sm text-danger">Delete</a>
+                                {% endif %}
                             {% endif %}
                         </div>
                         <div class="card-body">
@@ -29,10 +32,6 @@
                             <p>
                                 <strong>Raised on:</strong> {{ ticket.date }}
                             </p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="{% url 'ticket_delete' ticket.pk %}"
-                               class="btn btn-sm">Delete Ticket</a>
                         </div>
                     </div>
                 </div>
