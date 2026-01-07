@@ -17,7 +17,7 @@
         <button type="submit" class="btn btn-primary">
           {% if form.instance.pk %}Save Changes{% else %}Create Ticket{% endif %}
         </button>
-        <a href="{% url 'home' %}" class="btn btn-secondary ms-2">Cancel</a>
+        <a href="{% url 'ticket_list' %}" class="btn btn-secondary ms-2">Cancel</a>
       </div>
     </form>
   </div>
