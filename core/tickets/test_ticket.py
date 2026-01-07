@@ -95,7 +95,8 @@ class TestTicketViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertIn(reverse("login"), response["Location"])
 
-    def test_logged_in_user_can_create_ticket_and_author_is_set_automatically(self):
+    def test_logged_in_user_can_create_ticket_and_author_is_set_automatically(
+            self):
         self.client.login(username="testuser", password="pass12345!")
         url = reverse("ticket_add")
 
@@ -113,7 +114,8 @@ class TestTicketViews(TestCase):
         created = Ticket.objects.get(title="New ticket")
         self.assertEqual(created.author, self.user)
 
-    def test_logged_in_user_cannot_create_ticket_for_someone_else_even_if_author_is_posted(self):
+    def test_logged_in_user_cannot_create_ticket_for_someone_else_even_if_author_is_posted(
+            self):
         self.client.login(username="testuser", password="pass12345!")
         url = reverse("ticket_add")
 
@@ -191,7 +193,9 @@ class TestTicketViews(TestCase):
 
         response = self.client.post(url)
         self.assertEqual(response.status_code, 404)
-        self.assertTrue(Ticket.objects.filter(pk=self.other_ticket.pk).exists())
+        self.assertTrue(
+            Ticket.objects.filter(
+                pk=self.other_ticket.pk).exists())
 
     def test_superuser_can_delete_any_ticket(self):
         self.client.login(username="adminuser", password="pass12345!")
@@ -200,7 +204,9 @@ class TestTicketViews(TestCase):
         response = self.client.post(url, follow=True)
 
         self.assertEqual(response.status_code, 200)
-        self.assertFalse(Ticket.objects.filter(pk=self.other_ticket.pk).exists())
+        self.assertFalse(
+            Ticket.objects.filter(
+                pk=self.other_ticket.pk).exists())
 
     def test_ticket_add_uses_correct_template(self):
         self.client.login(username="testuser", password="pass12345!")

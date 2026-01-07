@@ -14,6 +14,8 @@ The regular user must be logged in to create and edit a ticket. A logged in supe
 - Regular users can create and view tickets  
 - Administrators (Django superusers) have full control over all records (full CRUD) and access to the Django admin database
 
+Regular users cannot create tickets in the name of an admin. They can only edit and delete their own tickets.
+
 ## Security requirements
 - Evidence should include:
   - A blocked SQL injection attempt  
@@ -41,6 +43,9 @@ Includes linting with autopep8, testing & code coverage with pytest and coverage
 Testing is performed using pytest. The test suite can be run manually but is always run in the branch on GitHub, within a minimum coverage set to ensure sufficient testing is made for the application. The GitHub workflow file shows the test outcome with the coverage table.
 
 The `pyproject.toml` file has the configuration for the coverage threshold.
+
+Command to check for linting issues `autopep8 -r core/accounts core/tickets --exclude="*/migrations/*" --diff`
+Command to lint files `autopep8 --in-place --aggressive -r core/accounts core/tickets --exclude=\*/migrations/\*`
 
 ## Project delivery management
 Using Github projects the application is planned with all component details with the individual task item. The items are tracked by their respective columns, ToDo, Backlog, InProgress, Peer Review, QA, Ready for Release and Done. The specificity of the columns allows a finer tuned tracking process to prevent any uncertainty with the status of the task. Especially when multiple tasks are being worked on in unison, such as adding authentication with the 'Create' or 'Edit' functionality for a ticket.

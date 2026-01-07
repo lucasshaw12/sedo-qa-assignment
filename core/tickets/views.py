@@ -31,7 +31,8 @@ class OwnerOrSuperuserQuerysetMixin:
         return qs.filter(author=user)
 
 
-class TicketUpdateView(LoginRequiredMixin, OwnerOrSuperuserQuerysetMixin, UpdateView):
+class TicketUpdateView(
+        LoginRequiredMixin, OwnerOrSuperuserQuerysetMixin, UpdateView):
     model = Ticket
     fields = ["title", "body"]
     template_name = "tickets/ticket_form.html"
@@ -39,7 +40,8 @@ class TicketUpdateView(LoginRequiredMixin, OwnerOrSuperuserQuerysetMixin, Update
     login_url = reverse_lazy("login")
 
 
-class TicketDeleteView(LoginRequiredMixin, OwnerOrSuperuserQuerysetMixin, DeleteView):
+class TicketDeleteView(
+        LoginRequiredMixin, OwnerOrSuperuserQuerysetMixin, DeleteView):
     model = Ticket
     template_name = "tickets/ticket_delete.html"
     success_url = reverse_lazy("ticket_list")
