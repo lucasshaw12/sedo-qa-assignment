@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Ticket
 
 
-class TicketListView(ListView):
+class TicketListView(LoginRequiredMixin, ListView):
     model = Ticket
     template_name = "tickets/ticket_list.html"
     ordering = ["is_completed", "-date"]
